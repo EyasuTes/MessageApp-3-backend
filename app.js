@@ -13,7 +13,14 @@ const { Socket } = require("socket.io");
 
 dotenv.config();
 
-app.use(cors());
+const corsOptions = {
+  origin: ["https://message-app-3-frontend.vercel.app"],
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 mongodbConnect();
 
@@ -29,12 +36,10 @@ const server = app.listen(3001);
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: [
-      "http://localhost:5173",
-      "https://message-app-3-frontend.vercel.app",
-    ],
-
-    // credentials: true,
+    origin: ["https://message-app-3-frontend.vercel.app"],
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
   },
 });
 
