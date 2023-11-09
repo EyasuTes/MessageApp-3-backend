@@ -30,6 +30,7 @@ const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
     origin: "http://localhost:5173",
+    origin: "https://messageapp-3-backend1.onrender.com",
     // credentials: true,
   },
 });
