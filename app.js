@@ -14,9 +14,9 @@ const { Socket } = require("socket.io");
 dotenv.config();
 
 const corsOptions = {
-  origin: ["https://message-app-3-frontend.vercel.app"],
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
+  origin: "*",
+  methods: "*",
+  allowedHeaders: "*",
   credentials: true,
 };
 
@@ -36,9 +36,9 @@ const server = app.listen(3001);
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: ["https://message-app-3-frontend.vercel.app"],
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
+    origin: "*",
+    methods: "*",
+    allowedHeaders: "*",
     credentials: true,
   },
 });
